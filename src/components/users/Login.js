@@ -1,7 +1,7 @@
 // بسم الله الرحمن الرحيم
 import { useState } from 'react'
-import login from '../services/login'
-import Notification from './Notification'
+import login from '../../services/login'
+import Notification from '../utils/Notification'
 const LoginForm =({handleSubmmit})=>{
     const [username,setUsername] = useState('')
     const [password,setPassword] = useState('')
@@ -36,14 +36,14 @@ const Login =  ({handleLogin})=>{
         setError(true)
         setMsg(error.response.data)
         freeMsg()
-        handleLogin(null)
-    
     })
     
     }
 
     return (
-        <>{msg?<Notification msg={msg} error={error}/>:null}
+        <>
+        <h4>Login to write blogs</h4>
+        {msg?<Notification msg={msg} error={error}/>:null}
        <LoginForm handleSubmmit={handleSubmmit}/>
         </>
     )

@@ -1,7 +1,7 @@
 // بسم الله الرحمن الرحيم
 import { useState } from 'react'
-import userServices from '../services/users'
-import Notification from './Notification'
+import userServices from '../../services/users'
+import Notification from '../utils/Notification'
 const NewUserForm =({handleSubmmit})=>{
     const [username,setUsername] = useState('')
     const [name,setName] = useState('')
@@ -67,6 +67,7 @@ const NewUser = ({handleNewUser})=>{
 
     return (
         <>
+        <h4>Sign up to write blogs</h4>
     {msg && <Notification msg={msg} error={error}/>}
        <NewUserForm handleSubmmit={handleSubmmit}/>
         </>

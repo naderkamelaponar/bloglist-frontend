@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import Blog from './components/Blog'
-import SignIn from './components/SignIn'
-import User from './components/User'
+import Blog from './components/blogs/Blog'
+import SignIn from './components/utils/SignIn'
+import User from './components/users/User'
 import blogService from './services/blogs'
 const App = () => {
   
@@ -14,26 +14,27 @@ const App = () => {
     if(blogs)setBlogs(blogs)
    })
     
-  }, [setUser])
+  }, [])
 const handleSignIn = (user)=>{
+  
   if (user) {
-    setUser(user)
-    window.localStorage.setItem(
-      'loggedInUser', JSON.stringify(user)
-    ) 
+  setUser(user)
   }
 }
 const handleSignOut = ()=>{
-  window.localStorage.clear()
   setUser(null)
+}
+const handleUserBlogs =()=>{
+  blogService.getAll().then(blogs=>{
+    if(blogs)setBlogs(blogs)
+   })
 }
   return (
     <>
     <div>
       <h1>بسم الله الرحمن الرحيم</h1>
       <h3>Blogs list fs-A- 5.1</h3>
-      
-      {user === null? <SignIn handleSignIn={handleSignIn}/>:<User handleSignOut={handleSignOut} />}
+      {user === null? <SignIn handleSignIn={handleSignIn} user={user}/>:<User handleSignOut={handleSignOut} handleSubmit={handleUserBlogs} userData={user}/>}
       <h3>blogs</h3>
       {blogs.map(blog =>
         <Blog key={blog.id} blog={blog} />
@@ -41,7 +42,8 @@ const handleSignOut = ()=>{
       
     </div>
     <footer>
-      BackEnd <a  href="https://github.com/naderkamelaponar/fs-blog-be" target={'_blank'} rel={"noreferrer"}>Repo</a>
+      <p>BackEnd <a  href="https://github.com/naderkamelaponar/fs-blog-be" target={'_blank'} rel={"noreferrer"}>Repo</a></p>
+      <p>FrontEnd <a  href="https://github.com/naderkamelaponar/bloglist-frontend" target={'_blank'} rel={"noreferrer"}>Repo</a></p>
     </footer></>
   )
 }

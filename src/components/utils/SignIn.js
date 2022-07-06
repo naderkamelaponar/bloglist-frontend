@@ -1,14 +1,18 @@
 // بسم الله الرحمن الرحيم
 import { useState } from 'react'
-import NewUser from './NewUser'
-import Login from './Login'
+import NewUser from '../users/NewUser'
+import Login from '../users/Login'
+import Cookies  from 'universal-cookie'
+const cookies = new Cookies()
 const SignIn = ({handleSignIn})=>{
     const [newUser,setNewUser] = useState(false)
     const handleNewUser= (loggeduser)=>{
-        handleSignIn(loggeduser)
+        cookies.set('inUser',loggeduser)
+        handleSignIn(cookies.cookies['inUser'])
     }
     const handleLogin= (loggeduser)=>{
-        handleSignIn(loggeduser)
+        cookies.set('inUser',loggeduser)
+        handleSignIn(cookies.cookies['inUser'])
     }
     const displayForm = newUser ?<NewUser handleNewUser={handleNewUser} /> : <Login  handleLogin={handleLogin}/>
     const displayButton = !newUser ?<button onClick={()=>{

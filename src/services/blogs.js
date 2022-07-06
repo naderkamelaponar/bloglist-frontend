@@ -11,5 +11,19 @@ const getAll =  async() => {
       return error.response
     }
 }
-const blogService={getAll}
+const newBlog =  async (newBlog,token) => {
+  
+  const postConfig={
+  headers:{  'authorization':`Bearer ${token}`}
+  }
+  
+  const request =  await  axios.post(baseUrl,newBlog,postConfig)  
+  try {
+    if (request) return request.data  
+  } catch (error) {
+    return error.response
+  }
+   
+  }
+const blogService={getAll,newBlog}
 export default blogService
