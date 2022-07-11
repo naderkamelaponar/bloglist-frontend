@@ -1,5 +1,5 @@
 import axios from 'axios'
-import config from "../utils/config"
+import config from '../utils/config'
 const baseUrl = config.baseUrl+'users/'
 
 const getAll = async () => {
@@ -11,14 +11,14 @@ const getAll = async () => {
   }
 }
 const newUser =  async user => {
-  const request =  await  axios.post(baseUrl,user)  
+  const request =  await  axios.post(baseUrl,user)
   try {
-    if (request) return request.data  
+    if (request) return request.data
   } catch (error) {
     return error.response
   }
-   
-  }
-  const userService ={getAll, newUser}
-  export default userService
+
+}
+const userService ={ getAll, newUser }
+export default userService
 
