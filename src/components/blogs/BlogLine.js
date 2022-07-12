@@ -9,7 +9,7 @@ const ToggleButton = ({ handleClick,label }) => {
   )
 }
 const BlogLine=({ blog ,handleSubmit ,token }) => {
-  
+
   const [visible,setVisible] = useState(false)
   const handleToggle = () => {
     setVisible(!visible)
@@ -23,17 +23,17 @@ const BlogLine=({ blog ,handleSubmit ,token }) => {
   return (<div style={titleStyle}>
     <p ><b   >{blog.title } </b>  {visible?<ToggleButton handleClick={handleToggle} label={'Hide'}/>:<ToggleButton handleClick={handleToggle} label={'View'}/>}</p>
     <p style={styleDisplay}><b>Url : </b> {blog.url} </p>
-    <p style={styleDisplay}><b>Likes :</b>{blog.likes}  <button onClick={()=>{
-      blogService.newLike(blog.id,blog.likes,token).then(()=>{
+    <p style={styleDisplay}><b>Likes :</b>{blog.likes}  <button onClick={() => {
+      blogService.newLike(blog.id,blog.likes,token).then(() => {
         handleSubmit()
       })
     }}>like</button></p>
     <p style={styleDisplay}><b>Author : </b> {blog.author} </p>
-    <p style={styleDisplay}> <button onClick={()=>{
-      if (window.confirm(`Remover Blog ${blog.title} by ${blog.author} ?`)) blogService.deleteBlog(blog.id,blog.user.id,token).then(()=>{
+    <p style={styleDisplay}> <button onClick={() => {
+      if (window.confirm(`Remover Blog ${blog.title} by ${blog.author} ?`)) blogService.deleteBlog(blog.id,blog.user.id,token).then(() => {
         handleSubmit()
       })
-      
+
     }}>Delete</button></p>
   </div> )
 

@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^14.1.1",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
@@ -17,7 +18,8 @@
   "scripts": {
     "start": "set REACT_APP_ENV='dev' && react-scripts start",
     "build": "set REACT_APP_ENV= && react-scripts build",
-    "test": "react-scripts test","eslint": "eslint . --fix",
+    "test": "react-scripts test",
+    "eslint": "eslint . --fix",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

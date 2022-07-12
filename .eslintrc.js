@@ -21,8 +21,14 @@ module.exports = {
         "react", "jest"
     ],
     "rules": {
-        "no-console": "2",
-       
+        "indent": [
+            "error",
+            2  
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
         "quotes": [
             "error",
             "single"
@@ -30,6 +36,14 @@ module.exports = {
         "semi": [
             "error",
             "never"
+        ],
+        "eqeqeq": "error",
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": [
+            "error", "always"
+        ],
+        "arrow-spacing": [
+            "error", { "before": true, "after": true }
         ],
         "no-console": 0,
         "react/prop-types": 0,

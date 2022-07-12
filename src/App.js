@@ -5,7 +5,7 @@ import User from './components/users/User'
 //import blogService from './services/blogs'
 const App = () => {
   const [user,setUser] = useState(null)
- /// const [blogs,setBlogs] = useState([])
+  /// const [blogs,setBlogs] = useState([])
   const handleSignIn = (user) => {
     if (user) {
       setUser(user)

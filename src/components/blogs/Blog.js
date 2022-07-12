@@ -29,13 +29,13 @@ const Blog=({ user }) => {
   }
   const token= user? JSON.parse(user)['token']:null
   const blogFormRef = useRef()
-  const handleBlogFormRef = ()=>{
+  const handleBlogFormRef = () => {
     blogFormRef.current.toggleVisibility()
   }
   return (
     <div>
-      
-       {msg?<Notification msg={msg} error={false}/>:null}
+
+      {msg?<Notification msg={msg} error={false}/>:null}
       <Togglable buttonLabel={'create'}  ref={blogFormRef}><NewBlog userData={user} handleNewBlog={handleSubmit} cancel={handleBlogFormRef}/> </Togglable>
       {blogs ?blogs.map((b,i) => {return <BlogLine handleSubmit ={fetchBlogs}key={i} likes={b.likes}token = {token}blog={b}/>}):null}
     </div>

@@ -27,7 +27,7 @@ const newBlog =  async (newBlog,token) => {
 }
 const newLike =  async (blogId,likes,token) => {
   const newLikeValue=likes+1
-  const blog ={id:blogId,likes:newLikeValue}
+  const blog ={ id:blogId,likes:newLikeValue }
   const putConfig={
     headers:{  'authorization':`Bearer ${token}` }
   }
@@ -41,7 +41,7 @@ const newLike =  async (blogId,likes,token) => {
 }
 const deleteBlog =  async (blogId,userId,token) => {
   const deleteConfig={
-    headers:{  'authorization':`Bearer ${token}` },data:{user:userId}
+    headers:{  'authorization':`Bearer ${token}` },data:{ user:userId }
   }
   const request =  await  axios.delete(baseUrl+blogId,deleteConfig)
   try {
@@ -51,5 +51,5 @@ const deleteBlog =  async (blogId,userId,token) => {
   }
 
 }
-const blogService={ getAll,newBlog , newLike ,deleteBlog}
+const blogService={ getAll,newBlog , newLike ,deleteBlog }
 export default blogService
